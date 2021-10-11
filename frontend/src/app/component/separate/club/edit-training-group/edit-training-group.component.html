@@ -1,0 +1,70 @@
+<h2 class="mb-4"> {{name}} </h2>
+<p> Tu możesz przeglądać oraz zmieniać zawodników w grupie. </p>
+<form class="form-margin">
+  <div class="form-group">
+    <label style="margin-left: 40px"> Typ grupy
+      <input type="text" class="form-control border bg-light" disabled
+             style="width: 250px; font-size: 14px" name="groupType" [(ngModel)]="groupType">
+    </label>
+    <label style="margin-left: 40px"> Trener główny
+      <input type="text" class="form-control border bg-light" disabled
+             style="width: 330px; font-size: 14px" name="headTrainer" [(ngModel)]="headTrainer">
+    </label>
+    <label style="margin-left: 40px"> Trener pomocniczy
+      <input type="text" class="form-control border bg-light" disabled
+             style="width: 330px; font-size: 14px" name="assistantTrainer" [(ngModel)]="assistantTrainer">
+    </label>
+  </div>
+</form>
+<table class="table table-bordered table-hover">
+  <thead class="thead-dark text-truncate">
+  <tr>
+    <th scope="col" style="width: 200px"> Imię i nazwisko</th>
+    <th scope="col" style="width: 250px"> Adres email</th>
+    <th scope="col" style="width: 200px"> Dyscyplina</th>
+    <th scope="col" style="width: 150px"> Stan zdrowia</th>
+    <th scope="col" style="width: 150px"> Telefon</th>
+    <th scope="col" style="width: 100px"> Akcja</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngIf="athletes?.length == 0">
+    <td colspan="6">Brak danych do wyświetlenia</td>
+  </tr>
+  <tr *ngFor="let athlete of athletes">
+    <td style="width: 200px">{{athlete?.fullName}}</td>
+    <td style="width: 250px">{{athlete?.email}}</td>
+    <td style="width: 200px">{{athleteUtils.translate(athlete.athleteType)}}</td>
+    <td style="width: 150px">{{medicalUtils.translate(athlete.medicalStatus)}}</td>
+    <td style="width: 150px">{{athlete?.personalPhoneNumber}}</td>
+    <td style="width: 100px">
+      <button type="button" class="btn btn-outline-danger action-button"
+              (click)="delete(athlete)">Usuń
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<table class="table table-bordered table-active" style="margin: -6% 3%;">
+  <tbody>
+  <tr>
+    <td style="width: 450px">Wybierz zawodnika z listy, aby go dodać:</td>
+    <td style="width: 500px">
+      <label style="width: 450px">
+        <select class="browser-default custom-select role" name="chosenAthlete"
+                style="font-size: 15px" [(ngModel)]="chosenAthlete">
+          <option value=""></option>
+          <option *ngFor="let athlete of allFreeAthletes" [ngValue]="athlete">
+            {{ athlete.fullName + " (" + athlete.email + ")" }}
+          </option>
+        </select>
+      </label>
+    </td>
+    <td style="width: 100px">
+      <button type="button" class="btn btn-outline-success action-button"
+              (click)="add()">Dodaj
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>

@@ -1,0 +1,56 @@
+<h2 class="mb-4"> Dodawanie trenera </h2>
+<p> Tu możesz dodać nowego trenera. Przypomnij mu o zmianie hasła po pierwszym logowaniu. </p>
+<form class="form-margin">
+  <div class="form-group">
+    <label> Imię i nazwisko
+      <input type="text" class="form-control border bg-light"
+             style="width: 260px; font-size: 14px" name="fullName" [(ngModel)]="fullName">
+    </label>
+    <label style="margin-left: 40px"> Adres email
+      <input type="text" class="form-control border bg-light"
+             style="width: 240px; font-size: 14px" name="email" [(ngModel)]="email">
+    </label>
+    <label style="margin-left: 40px"> Hasło
+      <input type="password" class="form-control border bg-light" name="password"
+             style="width: 190px; font-size: 14px" [(ngModel)]="password">
+    </label>
+  </div>
+  <div class="form-group" style="margin-top: 20px">
+    <label> Data urodzenia
+      <input type="date" class="form-control border bg-light"
+             style="width: 230px; font-size: 14px" name="birthDate" [(ngModel)]="birthDate">
+    </label>
+    <label style="width: 230px; margin-left: 40px"> Płeć
+      <select class="browser-default custom-select role" name="gender" style="font-size: 15px"
+              [(ngModel)]="gender">
+        <option *ngFor="let gender of genderTypes" [ngValue]="gender">
+          {{ genderUtils.translate(gender) }}
+        </option>
+      </select>
+    </label>
+    <label style="width: 230px; margin-left: 40px"> Typ licencji
+      <select class="browser-default custom-select role" name="licenseType" style="font-size: 15px"
+              [(ngModel)]="licenseType">
+        <option *ngFor="let type of licenseTypes" [ngValue]="type">
+          {{ licenseUtils.translate(type) }}
+        </option>
+      </select>
+    </label>
+  </div>
+  <div class="form-group" style="margin-top: 20px">
+    <label> Adres
+      <input type="text" class="form-control border bg-light"
+             style="width: 500px; font-size: 14px" name="address" [(ngModel)]="address">
+    </label>
+    <label style="margin-left: 40px"> Numer telefonu
+      <input type="text" class="form-control border bg-light"
+             style="width: 230px; font-size: 14px" name="phoneNumber" [(ngModel)]="phoneNumber">
+    </label>
+  </div>
+  <div class="form-group" style="margin-top: 6%">
+    <button type="button" class="btn btn-outline-dark" style="width: 12%"
+            (click)="add()">Dodaj
+    </button>
+    <a style="margin-left: 30px">{{feedback}}</a>
+  </div>
+</form>

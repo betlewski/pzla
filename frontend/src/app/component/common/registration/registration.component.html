@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="background">
+    <div class="form">
+      <div class="title">ZGŁOSZENIE
+        <p>Masz już swoje konto? <a routerLink="/login"><strong>Zaloguj się!</strong></a></p>
+      </div>
+      <form name="form">
+        <div class="row justify-content-center">
+          <label>
+            <input type="text" placeholder="Nazwa klubu" [(ngModel)]="name" name="name"/>
+          </label>
+        </div>
+        <div class="row justify-content-center">
+          <label>
+            <input type="text" placeholder="Numer NIP" [(ngModel)]="nipNumber" name="nipNumber"/>
+          </label>
+        </div>
+        <div class="row justify-content-center">
+          <label>
+            <input type="text" placeholder="Adres email" [(ngModel)]="email" name="email"/>
+          </label>
+        </div>
+        <button (click)=register()>DOŁĄCZ</button>
+      </form>
+      <div class="message">{{feedback}}</div>
+    </div>
+  </div>
+</div>

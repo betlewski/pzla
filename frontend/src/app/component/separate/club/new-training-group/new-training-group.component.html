@@ -1,0 +1,44 @@
+<h2 class="mb-4"> Tworzenie grupy </h2>
+<p> Tu możesz utworzyć nową grupę treningową. Jej zawodników wybierzesz później. </p>
+<form class="form-margin">
+  <div class="form-group">
+    <label> Nazwa grupy
+      <input type="text" class="form-control border bg-light"
+             style="width: 390px; font-size: 14px" name="name" [(ngModel)]="name">
+    </label>
+    <label style="width: 250px; margin-left: 40px"> Typ grupy
+      <select class="browser-default custom-select role" name="groupType" style="font-size: 15px"
+              [(ngModel)]="groupType">
+        <option *ngFor="let type of groupTypes" [ngValue]="type">
+          {{ groupUtils.translate(type) }}
+        </option>
+      </select>
+    </label>
+  </div>
+  <div class="form-group" style="margin-top: 30px">
+    <label style="width: 320px"> Trener główny
+      <select class="browser-default custom-select role" name="headTrainer" style="font-size: 15px"
+              [(ngModel)]="headTrainer" (ngModelChange)="headChanged($event)">
+        <option ngValue=""></option>
+        <option *ngFor="let trainer of headTrainers" [ngValue]="trainer">
+          {{ trainer?.fullName + " (" + trainer?.email + ")" }}
+        </option>
+      </select>
+    </label>
+    <label style="width: 320px; margin-left: 40px"> Trener pomocniczy
+      <select class="browser-default custom-select role" name="assistantTrainer" style="font-size: 15px"
+              [(ngModel)]="assistantTrainer" (ngModelChange)="assistantChanged($event)">
+        <option ngValue=""></option>
+        <option *ngFor="let trainer of assistantTrainers" [ngValue]="trainer">
+          {{ trainer?.fullName + " (" + trainer?.email + ")" }}
+        </option>
+      </select>
+    </label>
+  </div>
+  <div class="form-group" style="margin-top: 6%">
+    <button type="button" class="btn btn-outline-dark" style="width: 12%"
+            (click)="add()">Utwórz
+    </button>
+    <a style="margin-left: 30px">{{feedback}}</a>
+  </div>
+</form>

@@ -1,0 +1,85 @@
+<h2 class="mb-4"> Dodawanie zawodnika </h2>
+<p> Tu możesz dodać nowego zawodnika. Przypomnij mu o zmianie hasła po pierwszym logowaniu. </p>
+<form class="form-margin">
+  <div class="form-group">
+    <label> Imię i nazwisko
+      <input type="text" class="form-control border bg-light"
+             style="width: 260px; font-size: 14px" name="fullName" [(ngModel)]="fullName">
+    </label>
+    <label style="margin-left: 40px"> Adres email
+      <input type="text" class="form-control border bg-light"
+             style="width: 240px; font-size: 14px" name="email" [(ngModel)]="email">
+    </label>
+    <label style="margin-left: 40px"> Hasło
+      <input type="password" class="form-control border bg-light" name="password"
+             style="width: 190px; font-size: 14px" [(ngModel)]="password">
+    </label>
+    <div class="form-group" style="margin-top: 20px">
+      <label> Adres
+        <input type="text" class="form-control border bg-light"
+               style="width: 330px; font-size: 14px" name="address" [(ngModel)]="address">
+      </label>
+      <label style="margin-left: 40px"> Telefon osobisty
+        <input type="text" class="form-control border bg-light"
+               style="width: 180px; font-size: 14px" name="personalPhoneNumber" [(ngModel)]="personalPhoneNumber">
+      </label>
+      <label style="margin-left: 40px"> Telefon alarmowy
+        <input type="text" class="form-control border bg-light"
+               style="width: 180px; font-size: 14px" name="alarmPhoneNumber" [(ngModel)]="alarmPhoneNumber">
+      </label>
+    </div>
+  </div>
+  <div class="form-group" style="margin-top: 20px">
+    <label> Data urodzenia
+      <input type="date" class="form-control border bg-light"
+             style="width: 230px; font-size: 14px" name="birthDate" [(ngModel)]="birthDate">
+    </label>
+    <label style="width: 230px; margin-left: 40px"> Płeć
+      <select class="browser-default custom-select role" name="gender" style="font-size: 15px"
+              [(ngModel)]="gender">
+        <option *ngFor="let gender of genderTypes" [ngValue]="gender">
+          {{ genderUtils.translate(gender) }}
+        </option>
+      </select>
+    </label>
+    <label style="margin-left: 40px"> Wzrost [cm]
+      <input type="number" class="form-control border bg-light"
+             style="width: 100px; font-size: 14px" name="height" [(ngModel)]="height">
+    </label>
+    <label style="margin-left: 30px"> Waga [kg]
+      <input type="number" class="form-control border bg-light"
+             style="width: 100px; font-size: 14px" name="weight" [(ngModel)]="weight">
+    </label>
+    <div class="form-group" style="margin-top: 20px">
+      <label style="width: 230px"> Stan medyczny
+        <select class="browser-default custom-select role" name="medicalStatus" style="font-size: 15px"
+                [(ngModel)]="medicalStatus">
+          <option *ngFor="let status of medicalStatuses" [ngValue]="status">
+            {{ medicalUtils.translate(status) }}
+          </option>
+        </select>
+      </label>
+      <label style="width: 230px; margin-left: 40px"> Dyscyplina
+        <select class="browser-default custom-select role" name="athleteType" style="font-size: 15px"
+                [(ngModel)]="athleteType">
+          <option *ngFor="let type of athleteTypes" [ngValue]="type">
+            {{ athleteUtils.translate(type) }}
+          </option>
+        </select>
+      </label>
+      <label style="width: 230px; margin-left: 40px"> Kadra narodowa
+        <select class="browser-default custom-select role" name="nationalTeamMember" style="font-size: 15px"
+                [(ngModel)]="nationalTeamMember">
+          <option [ngValue]="true">Tak</option>
+          <option [ngValue]="false">Nie</option>
+        </select>
+      </label>
+    </div>
+  </div>
+  <div class="form-group" style="margin-top: 6%">
+    <button type="button" class="btn btn-outline-dark" style="width: 12%"
+            (click)="add()">Dodaj
+    </button>
+    <a style="margin-left: 30px">{{feedback}}</a>
+  </div>
+</form>

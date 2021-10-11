@@ -1,0 +1,51 @@
+<h2 class="mb-4"> Dane klubowe </h2>
+<p> Tu możesz przeglądać oraz edytować dane klubu. </p>
+<form class="form-margin">
+  <div class="form-group">
+    <label> Pełna nazwa klubu
+      <input type="text" class="form-control border bg-light" [disabled]="viewMode"
+             style="width: 500px; font-size: 14px" name="name" [(ngModel)]="name">
+    </label>
+    <label style="margin-left: 40px"> Numer NIP
+      <input type="text" class="form-control border bg-light" [disabled]="viewMode"
+             style="width: 230px; font-size: 14px" name="nipNumber" [(ngModel)]="nipNumber">
+    </label>
+    <label style="width: 230px; margin-left: 40px"> Typ klubu
+      <select class="browser-default custom-select role" name="clubType" style="font-size: 15px"
+              [(ngModel)]="clubType" [disabled]="viewMode">
+        <option *ngFor="let type of clubTypes" [ngValue]="type">
+          {{ clubTypesUtils.translate(type) }}
+        </option>
+      </select>
+    </label>
+  </div>
+  <div class="form-group" style="margin-top: 30px">
+    <label> Adres
+      <input type="text" class="form-control border bg-light" [disabled]="viewMode"
+             style="width: 350px; font-size: 14px" name="address" [(ngModel)]="address">
+    </label>
+    <label style="margin-left: 40px"> Numer telefonu
+      <input type="text" class="form-control border bg-light" [disabled]="viewMode"
+             style="width: 190px; font-size: 14px" name="phoneNumber" [(ngModel)]="phoneNumber">
+    </label>
+    <label style="margin-left: 40px"> Data utworzenia
+      <input type="date" class="form-control border bg-light" [disabled]="viewMode"
+             style="width: 190px; font-size: 14px" name="creationDate" [(ngModel)]="creationDate">
+    </label>
+    <label style="margin-left: 40px"> Data rejestracji
+      <input type="date" class="form-control border bg-light" disabled
+             style="width: 190px; font-size: 14px" name="registrationDate" [(ngModel)]="registrationDate">
+    </label>
+  </div>
+  <div class="form-group" style="margin-top: 60px">
+    <button type="button" class="btn btn-outline-danger"
+            style="width: 15%" (click)="changePwd()">Zmiana hasła
+    </button>
+    <button *ngIf="viewMode" type="button" class="btn btn-outline-dark"
+            style="width: 10%; margin-left: 40px" (click)="editData()">Edytuj
+    </button>
+    <button *ngIf="!viewMode" type="button" class="btn btn-outline-dark"
+            style="width: 10%; margin-left: 40px" (click)="saveData()">Zapisz
+    </button>
+  </div>
+</form>

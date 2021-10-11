@@ -1,0 +1,37 @@
+<h2 class="mb-4"> Trenerzy </h2>
+<p> Lista wszystkich trenerów zatrudnionych w klubie.</p>
+
+<table class="table table-bordered table-hover">
+  <thead class="thead-dark text-truncate">
+  <tr>
+    <th scope="col" style="width: 200px"> Imię i nazwisko</th>
+    <th scope="col" style="width: 250px"> Adres email</th>
+    <th scope="col" style="width: 150px"> Data urodzenia</th>
+    <th scope="col" style="width: 200px"> Typ licencji</th>
+    <th scope="col" style="width: 150px"> Telefon</th>
+    <th scope="col" style="width: 100px"> Szczegóły</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngIf="trainers.length == 0">
+    <td colspan="6">Brak danych do wyświetlenia</td>
+  </tr>
+  <tr *ngFor="let trainer of trainers">
+    <td style="width: 200px">{{trainer?.fullName}}</td>
+    <td style="width: 250px">{{trainer?.email}}</td>
+    <td style="width: 150px">{{trainer?.birthDate}}</td>
+    <td style="width: 200px">{{licenseUtils.translate(trainer.licenseType)}}</td>
+    <td style="width: 150px">{{trainer?.phoneNumber}}</td>
+    <td style="width: 100px">
+      <button type="button" class="btn btn-outline-warning request-button"
+              (click)="showDetails(trainer)"><>
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<div class="form-group" style="margin: -2% 3%">
+  <button type="button" class="btn btn-outline-dark"
+          style="width: 15%" (click)="addTrainer()">Dodaj trenera
+  </button>
+</div>

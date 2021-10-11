@@ -1,0 +1,52 @@
+<h2 class="mb-4"> {{email}} </h2>
+<p> Tu możesz przeglądać oraz edytować dane trenera. </p>
+<form class="form-margin">
+  <div class="form-group">
+    <label> Imię i nazwisko
+      <input type="text" class="form-control border bg-light" [disabled]="viewMode"
+             style="width: 260px; font-size: 14px" name="fullName" [(ngModel)]="fullName">
+    </label>
+    <label style="margin-left: 40px"> Adres
+      <input type="text" class="form-control border bg-light" [disabled]="viewMode"
+             style="width: 350px; font-size: 14px" name="address" [(ngModel)]="address">
+    </label>
+    <label style="margin-left: 40px"> Numer telefonu
+      <input type="text" class="form-control border bg-light" [disabled]="viewMode"
+             style="width: 190px; font-size: 14px" name="phoneNumber" [(ngModel)]="phoneNumber">
+    </label>
+  </div>
+  <div class="form-group" style="margin-top: 30px">
+    <label> Data urodzenia
+      <input type="date" class="form-control border bg-light" [disabled]="viewMode"
+             style="width: 190px; font-size: 14px" name="birthDate" [(ngModel)]="birthDate">
+    </label>
+    <label style="width: 190px; margin-left: 40px"> Płeć
+      <select class="browser-default custom-select role" name="gender" style="font-size: 15px"
+              [(ngModel)]="gender" [disabled]="viewMode">
+        <option *ngFor="let gender of genderTypes" [ngValue]="gender">
+          {{ genderUtils.translate(gender) }}
+        </option>
+      </select>
+    </label>
+    <label style="width: 190px; margin-left: 40px"> Typ licencji
+      <select class="browser-default custom-select role" name="licenseType" style="font-size: 15px"
+              [(ngModel)]="licenseType" [disabled]="viewMode">
+        <option *ngFor="let type of licenseTypes" [ngValue]="type">
+          {{ licenseUtils.translate(type) }}
+        </option>
+      </select>
+    </label>
+    <label style="margin-left: 40px"> Data rejestracji
+      <input type="date" class="form-control border bg-light" disabled
+             style="width: 190px; font-size: 14px" name="registrationDate" [(ngModel)]="registrationDate">
+    </label>
+  </div>
+  <div class="form-group" style="margin-top: 60px">
+    <button *ngIf="viewMode" type="button" class="btn btn-outline-dark"
+            style="width: 10%" (click)="editData()">Edytuj
+    </button>
+    <button *ngIf="!viewMode" type="button" class="btn btn-outline-dark"
+            style="width: 10%" (click)="saveData()">Zapisz
+    </button>
+  </div>
+</form>

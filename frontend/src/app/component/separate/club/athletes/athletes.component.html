@@ -1,0 +1,37 @@
+<h2 class="mb-4"> Zawodnicy </h2>
+<p> Lista wszystkich zawodników trenujących w klubie.</p>
+
+<table class="table table-bordered table-hover">
+  <thead class="thead-dark text-truncate">
+  <tr>
+    <th scope="col" style="width: 200px"> Imię i nazwisko</th>
+    <th scope="col" style="width: 250px"> Adres email</th>
+    <th scope="col" style="width: 200px"> Dyscyplina</th>
+    <th scope="col" style="width: 150px"> Stan zdrowia</th>
+    <th scope="col" style="width: 150px"> Telefon</th>
+    <th scope="col" style="width: 100px"> Szczegóły</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngIf="athletes.length == 0">
+    <td colspan="6">Brak danych do wyświetlenia</td>
+  </tr>
+  <tr *ngFor="let athlete of athletes">
+    <td style="width: 200px">{{athlete.fullName}}</td>
+    <td style="width: 250px">{{athlete.email}}</td>
+    <td style="width: 200px">{{athleteUtils.translate(athlete.athleteType)}}</td>
+    <td style="width: 150px">{{medicalUtils.translate(athlete.medicalStatus)}}</td>
+    <td style="width: 150px">{{athlete.personalPhoneNumber}}</td>
+    <td style="width: 100px">
+      <button type="button" class="btn btn-outline-warning request-button"
+              (click)="showDetails(athlete)"><>
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<div class="form-group" style="margin: -2% 3%">
+  <button type="button" class="btn btn-outline-dark"
+          style="width: 17%" (click)="addAthlete()">Dodaj zawodnika
+  </button>
+</div>
