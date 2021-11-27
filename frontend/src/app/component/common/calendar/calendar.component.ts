@@ -132,7 +132,7 @@ export class CalendarComponent {
     }
   }
 
-  private getEventsByEmail(email: string): void {
+  protected getEventsByEmail(email: string): void {
     this.trainingService.findAllByAthlete(email)
       .subscribe(trainings => {
         trainings.forEach(training => {

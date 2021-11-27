@@ -44,6 +44,7 @@ import {DataAthleteComponent} from './component/separate/athlete/data-athlete/da
 import {ChangePasswordAthleteComponent} from './component/separate/athlete/change-password-athlete/change-password-athlete.component';
 import {ClubDataForAthleteComponent} from './component/separate/athlete/club-data-for-athlete/club-data-for-athlete.component';
 import {TrainingGroupsForAthleteComponent} from './component/separate/athlete/training-groups-for-athlete/training-groups-for-athlete.component';
+import {CalendarAthleteComponent} from './component/separate/athlete/calendar-athlete/calendar-athlete.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import {TrainingGroupsForAthleteComponent} from './component/separate/athlete/tr
     DataAthleteComponent,
     ChangePasswordAthleteComponent,
     ClubDataForAthleteComponent,
-    TrainingGroupsForAthleteComponent
+    TrainingGroupsForAthleteComponent,
+    CalendarAthleteComponent
   ],
   imports: [
     BrowserModule,

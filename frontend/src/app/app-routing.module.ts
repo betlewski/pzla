@@ -30,6 +30,7 @@ import {DataAthleteComponent} from "./component/separate/athlete/data-athlete/da
 import {ChangePasswordAthleteComponent} from "./component/separate/athlete/change-password-athlete/change-password-athlete.component";
 import {ClubDataForAthleteComponent} from "./component/separate/athlete/club-data-for-athlete/club-data-for-athlete.component";
 import {TrainingGroupsForAthleteComponent} from "./component/separate/athlete/training-groups-for-athlete/training-groups-for-athlete.component";
+import {CalendarAthleteComponent} from "./component/separate/athlete/calendar-athlete/calendar-athlete.component";
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -164,6 +165,11 @@ const routes: Routes = [
           {
             path: 'training-groups',
             component: TrainingGroupsForAthleteComponent,
+            canActivate: [AuthGuardAthlete]
+          },
+          {
+            path: 'calendar',
+            component: CalendarAthleteComponent,
             canActivate: [AuthGuardAthlete]
           }
         ]
