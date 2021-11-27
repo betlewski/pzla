@@ -40,6 +40,7 @@ import {TrainingService} from "./service/rest/training/training.service";
 import {CalendarTrainerComponent} from './component/separate/trainer/calendar-trainer/calendar-trainer.component';
 import {CalendarClubComponent} from './component/separate/club/calendar-club/calendar-club.component';
 import {HomeAthleteComponent} from './component/separate/athlete/home-athlete/home-athlete.component';
+import {DataAthleteComponent} from './component/separate/athlete/data-athlete/data-athlete.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import {HomeAthleteComponent} from './component/separate/athlete/home-athlete/ho
     EditTrainingGroupsForTrainerComponent,
     CalendarTrainerComponent,
     CalendarClubComponent,
-    HomeAthleteComponent
+    HomeAthleteComponent,
+    DataAthleteComponent
   ],
   imports: [
     BrowserModule,
