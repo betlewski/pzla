@@ -36,7 +36,7 @@ export class EditTrainingGroupsForTrainerComponent implements OnInit {
               private trainingGroupService: TrainingGroupService) {
     // @ts-ignore
     this.name = this.route.snapshot.paramMap.get('name');
-    this.clubService.findByTrainerEmail(this.authService.getUserEmail())
+    this.clubService.findByMemberEmail(this.authService.getUserEmail())
       .subscribe(club => {
         this.clubEmail = club.email == null ? "" : club.email;
         this.loadFreeAthletes();
