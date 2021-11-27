@@ -26,7 +26,7 @@ export class Utils {
   }
 
   public static checkIfNipNumberCorrect(nip: string | null): boolean {
-    return nip == null ? false : nip.match("^[0-9]{10}$") != null;
+    return nip == null ? false : nip.match("^[0-9]{3}[-]?[0-9]{3}[-]?[0-9]{2}[-]?[0-9]{2}$") != null;
   }
 
   public translateExamTypeByNumber(examType: ExamType | null): string {
