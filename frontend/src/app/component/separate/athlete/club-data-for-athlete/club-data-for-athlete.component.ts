@@ -1,16 +1,16 @@
 import {Component, OnInit} from '@angular/core';
-import {ClubType} from "../../../../utils/club-type";
 import {Router} from "@angular/router";
 import {AuthService} from "../../../../service/auth/auth.service";
 import {ClubService} from "../../../../service/rest/club/club.service";
 import {Club} from "../../../../model/club.model";
+import {ClubType} from "../../../../utils/club-type";
 
 @Component({
-  selector: 'app-club-data-for-trainer',
-  templateUrl: './club-data-for-trainer.component.html',
-  styleUrls: ['./club-data-for-trainer.component.css']
+  selector: 'app-club-data-for-athlete',
+  templateUrl: './club-data-for-athlete.component.html',
+  styleUrls: ['./club-data-for-athlete.component.css']
 })
-export class ClubDataForTrainerComponent implements OnInit {
+export class ClubDataForAthleteComponent implements OnInit {
 
   name: string | null = "";
   nipNumber: string | null = "";
