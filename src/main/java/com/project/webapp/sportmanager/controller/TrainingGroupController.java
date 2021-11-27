@@ -38,6 +38,12 @@ public class TrainingGroupController {
         return trainingGroupService.getAllTrainingGroupsForTrainer(trainerEmail);
     }
 
+    @GetMapping("/all/byAthlete")
+    @ResponseBody
+    public List<TrainingGroup> getAllTrainingGroupsForAthlete(@RequestParam("athlete") String athleteEmail) {
+        return trainingGroupService.getAllTrainingGroupsForAthlete(athleteEmail);
+    }
+
     @PostMapping("/add")
     public ResponseEntity<TrainingGroup> addTrainingGroup(@RequestBody TrainingGroup trainingGroup,
                                                           @RequestParam("club") String clubEmail,

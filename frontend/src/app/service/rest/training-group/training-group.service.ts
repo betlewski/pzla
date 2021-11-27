@@ -14,6 +14,7 @@ export class TrainingGroupService {
   private FIND_BY_NAME_URL = this.TRAINING_GROUP_URL + '/byName';
   private FIND_ALL_BY_CLUB_URL = this.TRAINING_GROUP_URL + '/all/byClub';
   private FIND_ALL_BY_TRAINER_URL = this.TRAINING_GROUP_URL + '/all/byTrainer';
+  private FIND_ALL_BY_ATHLETE_URL = this.TRAINING_GROUP_URL + '/all/byAthlete';
   private ADD_URL = this.TRAINING_GROUP_URL + '/add';
   private EDIT_ATHLETES_URL = this.TRAINING_GROUP_URL + '/edit/athletes';
 
@@ -39,6 +40,13 @@ export class TrainingGroupService {
     const headers = this.authService.getAuthHeaders();
     const params = new HttpParams().set("trainer", trainerEmail);
     return this.http.get<TrainingGroup[]>(this.FIND_ALL_BY_TRAINER_URL,
+      {headers: headers, params: params});
+  }
+
+  public findAllByAthlete(athleteEmail: string): Observable<TrainingGroup[]> {
+    const headers = this.authService.getAuthHeaders();
+    const params = new HttpParams().set("athlete", athleteEmail);
+    return this.http.get<TrainingGroup[]>(this.FIND_ALL_BY_ATHLETE_URL,
       {headers: headers, params: params});
   }
 

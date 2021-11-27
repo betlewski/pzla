@@ -61,6 +61,15 @@ public class TrainingGroupService {
         }
     }
 
+    public List<TrainingGroup> getAllTrainingGroupsForAthlete(String athleteEmail) {
+        Optional<Athlete> athlete = athleteRepository.findByEmail(athleteEmail);
+        if (athlete.isPresent()) {
+            return trainingGroupRepository.findAllByAthletesContaining(athlete.get());
+        } else {
+            return new ArrayList<>();
+        }
+    }
+
     public ResponseEntity<TrainingGroup> addTrainingGroup(TrainingGroup trainingGroup, String clubEmail,
                                                           String headTrainerEmail, String assistantTrainerEmail) {
         if (getTrainingGroupByName(trainingGroup.getName()) != null) {
