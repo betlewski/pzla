@@ -13,7 +13,7 @@ export class ClubService {
   private CLUB_URL = environment.restUrl + '/club';
   private REQUEST_CLUB_REGISTRATION_URL = this.CLUB_URL + '/request';
   private FIND_BY_EMAIL_URL = this.CLUB_URL + '/byEmail';
-  private FIND_BY_TRAINER_EMAIL_URL = this.CLUB_URL + '/byTrainer';
+  private FIND_BY_MEMBER_EMAIL_URL = this.CLUB_URL + '/byMember';
   private EDIT_URL = this.CLUB_URL + '/edit';
   private CHANGE_PASSWORD_URL = this.CLUB_URL + '/edit/password';
 
@@ -33,10 +33,10 @@ export class ClubService {
       {headers: headers, params: params});
   }
 
-  public findByTrainerEmail(trainerEmail: string): Observable<Club> {
+  public findByMemberEmail(memberEmail: string): Observable<Club> {
     const headers = this.authService.getAuthHeaders();
-    const params = new HttpParams().set("trainer", trainerEmail);
-    return this.http.get<Club>(this.FIND_BY_TRAINER_EMAIL_URL,
+    const params = new HttpParams().set("member", memberEmail);
+    return this.http.get<Club>(this.FIND_BY_MEMBER_EMAIL_URL,
       {headers: headers, params: params});
   }
 

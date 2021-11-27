@@ -4,6 +4,7 @@ import com.project.webapp.sportmanager.model.Athlete;
 import com.project.webapp.sportmanager.model.Club;
 import com.project.webapp.sportmanager.model.Trainer;
 import com.project.webapp.sportmanager.model.TrainingGroup;
+import com.project.webapp.sportmanager.repository.AthleteRepository;
 import com.project.webapp.sportmanager.repository.ClubRepository;
 import com.project.webapp.sportmanager.repository.TrainerRepository;
 import com.project.webapp.sportmanager.utils.DataUtils;
@@ -24,16 +25,19 @@ public class ClubService {
 
     private ClubRepository clubRepository;
     private TrainerRepository trainerRepository;
+    private AthleteRepository athleteRepository;
     private PasswordEncoder passwordEncoder;
     private JavaMailSender javaMailSender;
 
     @Autowired
     public ClubService(ClubRepository clubRepository,
                        TrainerRepository trainerRepository,
+                       AthleteRepository athleteRepository,
                        PasswordEncoder passwordEncoder,
                        JavaMailSender javaMailSender) {
         this.clubRepository = clubRepository;
         this.trainerRepository = trainerRepository;
+        this.athleteRepository = athleteRepository;
         this.passwordEncoder = passwordEncoder;
         this.javaMailSender = javaMailSender;
     }
@@ -64,10 +68,16 @@ public class ClubService {
         return club.orElse(null);
     }
 
-    public Club getClubByTrainerEmail(String trainerEmail) {
-        Optional<Trainer> trainer = trainerRepository.findByEmail(trainerEmail);
-        Optional<Club> club = clubRepository.findByTrainersContaining(trainer.orElse(null));
-        return club.orElse(null);
+    public Club getClubByMemberEmail(String memberEmail) {
+        Optional<Trainer> trainer = trainerRepository.findByEmail(memberEmail);
+        if (trainer.isPresent()) {
+            Optional<Club> club = clubRepository.findByTrainersContaining(trainer.get());
+            return club.orElse(null);
+        } else {
+            Optional<Athlete> athlete = athleteRepository.findByEmail(memberEmail);
+            Optional<Club> club = clubRepository.findByAthletesContaining(athlete.orElse(null));
+            return club.orElse(null);
+        }
     }
 
     public void addTrainerToClub(Trainer trainer, String clubEmail) {

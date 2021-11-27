@@ -63,7 +63,8 @@ public class InitService {
 //
 //        Athlete athlete1 = new Athlete();
 //        athlete1.setFullName("Szymon Betlewski");
-//        athlete1.setEmail("szymon@betlewski.pl");
+//        athlete1.setEmail("athlete1@pbs.edu.pl");
+//        athlete1.setPassword(passwordEncoder.encode("Qwerty.1"));
 //        athlete1.setPersonalPhoneNumber("730-358-777");
 //        athlete1.setMedicalStatus(MedicalStatus.HEALTHY);
 //        athlete1.setWeight(62);
@@ -77,7 +78,8 @@ public class InitService {
 //
 //        Athlete athlete2 = new Athlete();
 //        athlete2.setFullName("Anna Kowalska");
-//        athlete2.setEmail("anna@kowalska.pl");
+//        athlete2.setEmail("athlete2@pbs.edu.pl");
+//        athlete2.setPassword(passwordEncoder.encode("Qwerty.1"));
 //        athlete2.setPersonalPhoneNumber("123-456-789");
 //        athlete2.setMedicalStatus(MedicalStatus.INJURED);
 //        athlete2.setWeight(62);
@@ -91,7 +93,7 @@ public class InitService {
 //
 //        Trainer trainer1 = new Trainer();
 //        trainer1.setFullName("Szymon Betlewski");
-//        trainer1.setEmail("szybet@pbs.edu.pl");
+//        trainer1.setEmail("trainer1@pbs.edu.pl");
 //        trainer1.setPhoneNumber("730-358-777");
 //        trainer1.setLicenseType(LicenseType.FIRST);
 //        trainer1.setAddress("Pruszcz ul. Bydgoska 18, 86-120");
@@ -102,8 +104,9 @@ public class InitService {
 //
 //        Trainer trainer2 = new Trainer();
 //        trainer2.setFullName("Bartosz Krauze");
-//        trainer2.setEmail("barkra@pbs.edu.pl");
+//        trainer2.setEmail("trainer2@pbs.edu.pl");
 //        trainer2.setPhoneNumber("123-456-789");
+//        trainer2.setPassword(passwordEncoder.encode("Qwerty.1"));
 //        trainer2.setLicenseType(LicenseType.MASTER);
 //        trainer2 = trainerRepository.save(trainer2);
 //
@@ -129,7 +132,7 @@ public class InitService {
 //        club.setAddress("Al. prof. S. Kaliskiego 7, 85-796 Bydgoszcz");
 //        club.setPhoneNumber("(52) 374-94-11");
 //        club.setCreationDate(LocalDate.of(1992, 10, 1));
-//        club.setEmail("azs@pbs.edu.pl");
+//        club.setEmail("club1@pbs.edu.pl");
 //        club.setPassword(passwordEncoder.encode("Qwerty.1"));
 //        club.setTrainers(Arrays.asList(trainer1, trainer2));
 //        club.setAthletes(Arrays.asList(athlete1, athlete2));

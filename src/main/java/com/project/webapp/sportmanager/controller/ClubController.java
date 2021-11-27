@@ -29,10 +29,10 @@ public class ClubController {
         return clubService.getClubByEmail(email);
     }
 
-    @GetMapping("/byTrainer")
+    @GetMapping("/byMember")
     @ResponseBody
-    public Club getClubByTrainerEmail(@RequestParam("trainer") String trainerEmail) {
-        return clubService.getClubByTrainerEmail(trainerEmail);
+    public Club getClubByMemberEmail(@RequestParam("member") String memberEmail) {
+        return clubService.getClubByMemberEmail(memberEmail);
     }
 
     @PutMapping("/edit")
