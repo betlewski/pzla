@@ -41,6 +41,7 @@ import {CalendarTrainerComponent} from './component/separate/trainer/calendar-tr
 import {CalendarClubComponent} from './component/separate/club/calendar-club/calendar-club.component';
 import {HomeAthleteComponent} from './component/separate/athlete/home-athlete/home-athlete.component';
 import {DataAthleteComponent} from './component/separate/athlete/data-athlete/data-athlete.component';
+import {ChangePasswordAthleteComponent} from './component/separate/athlete/change-password-athlete/change-password-athlete.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import {DataAthleteComponent} from './component/separate/athlete/data-athlete/da
     CalendarTrainerComponent,
     CalendarClubComponent,
     HomeAthleteComponent,
-    DataAthleteComponent
+    DataAthleteComponent,
+    ChangePasswordAthleteComponent
   ],
   imports: [
     BrowserModule,
