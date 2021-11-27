@@ -24,6 +24,8 @@ import {TrainingGroupsForTrainerComponent} from "./component/separate/trainer/tr
 import {EditTrainingGroupsForTrainerComponent} from "./component/separate/trainer/edit-training-groups-for-trainer/edit-training-groups-for-trainer.component";
 import {CalendarTrainerComponent} from "./component/separate/trainer/calendar-trainer/calendar-trainer.component";
 import {CalendarClubComponent} from "./component/separate/club/calendar-club/calendar-club.component";
+import {HomeAthleteComponent} from "./component/separate/athlete/home-athlete/home-athlete.component";
+import {AuthGuardAthlete} from "./service/auth-guard/athlete/auth-guard-athlete.service";
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -134,6 +136,11 @@ const routes: Routes = [
             canActivate: [AuthGuardTrainer]
           }
         ]
+      },
+      {
+        path: 'athlete',
+        component: HomeAthleteComponent,
+        canActivate: [AuthGuardAthlete]
       },
     ]
   },

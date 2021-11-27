@@ -37,8 +37,9 @@ import {ClubDataForTrainerComponent} from './component/separate/trainer/club-dat
 import {TrainingGroupsForTrainerComponent} from './component/separate/trainer/training-groups-for-trainer/training-groups-for-trainer.component';
 import {EditTrainingGroupsForTrainerComponent} from './component/separate/trainer/edit-training-groups-for-trainer/edit-training-groups-for-trainer.component';
 import {TrainingService} from "./service/rest/training/training.service";
-import { CalendarTrainerComponent } from './component/separate/trainer/calendar-trainer/calendar-trainer.component';
-import { CalendarClubComponent } from './component/separate/club/calendar-club/calendar-club.component';
+import {CalendarTrainerComponent} from './component/separate/trainer/calendar-trainer/calendar-trainer.component';
+import {CalendarClubComponent} from './component/separate/club/calendar-club/calendar-club.component';
+import {HomeAthleteComponent} from './component/separate/athlete/home-athlete/home-athlete.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { CalendarClubComponent } from './component/separate/club/calendar-club/c
     TrainingGroupsForTrainerComponent,
     EditTrainingGroupsForTrainerComponent,
     CalendarTrainerComponent,
-    CalendarClubComponent
+    CalendarClubComponent,
+    HomeAthleteComponent
   ],
   imports: [
     BrowserModule,
